@@ -463,7 +463,7 @@ def avg_tax_rate(total_tax, total_base, weights=None, data=None):
         base_name = total_base
         tax_name = total_tax
     else:
-        base_name = ["base".format() for i in range(n_cols)]
+        base_name = ["base"] * n_cols
         tax_name = [f"tax_{i}" for i in range(n_cols)]
 
     names = ["_".join([t, b]) for t, b in zip(tax_name, base_name, strict=False)]
