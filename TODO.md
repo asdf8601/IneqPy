@@ -1,8 +1,7 @@
 # TODO
 
-- [o] adopt uv
-- [o] update deps and python ver
-- [ ] ???
+- [x] adopt uv
+- [x] update deps and python ver
 
 
 

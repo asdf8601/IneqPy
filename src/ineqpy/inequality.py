@@ -15,8 +15,8 @@ Todo
 import numpy as np
 import pandas as pd
 
-from . import utils
-from .statistics import mean
+from ineqpy import utils
+from ineqpy.statistics import mean
 
 __all__ = [
     "atkinson",

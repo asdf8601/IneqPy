@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 
-from .. import _statistics as stats, inequality as ineq, utils
+from ineqpy import _statistics as stats, inequality as ineq, utils
 
 
 def atkinson_group(

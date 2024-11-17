@@ -9,7 +9,7 @@ from types import MethodType
 
 import pandas as pd
 
-from . import inequality, statistics
+from ineqpy import inequality, statistics
 
 
 class Convey:

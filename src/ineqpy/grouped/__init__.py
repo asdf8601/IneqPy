@@ -2,6 +2,6 @@
 
 Contains inequality and stats module.
 """
-from . import inequality, stats
+from ineqpy.grouped import inequality, stats
 
 __all__ = ["inequality", "stats"]

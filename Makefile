@@ -19,7 +19,7 @@ install:  ## Install dependencies
 	uv sync
 
 .PHONY: test
-test:  dev  ## Run tests
+test:  ## Run tests
 	uv run pytest
 
 .PHONY: lint
@@ -27,8 +27,12 @@ lint:  ## Run linters
 	uv run ruff check ./src ./tests
 
 .PHONY: fix
-fix:   ## Fix lint errors
+fix:  ## Fix lint errors
 	uv run ruff check ./src ./tests --fix
+
+.PHONY: cov
+cov: ## Run tests with coverage
+	uv run pytest --cov=src --cov-report=term-missing
 
 .PHONY: pages
 pages: doc  ## Build documentation and push to gh-pages
@@ -41,7 +45,7 @@ doc:  ## Build documentation
 	cd docs && uv run make html
 
 .PHONY: build
-build: ## Build package
+build:  ## Build package
 	uv build
 
 .PHONY: dbash

@@ -4,7 +4,7 @@ This module contains main descriptive statistics like: mean, variance, etc.
 
 """
 
-from . import _statistics as stat, utils
+from ineqpy import _statistics as stat, utils
 
 
 def c_moment(
