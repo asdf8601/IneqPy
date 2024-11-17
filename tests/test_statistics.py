@@ -62,4 +62,4 @@ def test_percentile(x, w, r_x):
 
 def msg(real, obtained, r_x, x, w):
     if abs(real - obtained) > 1e-6:
-        return "\nr_x = {}\nx = {}\nw = {}".format(str(r_x), str(x), str(w))
+        return f"\nr_x = {str(r_x)}\nx = {str(x)}\nw = {str(w)}"

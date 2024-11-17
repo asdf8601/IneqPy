@@ -8,8 +8,8 @@ def test_api():
     # todo improve this test.
     # only checks that all methods works.
     svy = ineqpy.api.Survey
-    data = np.random.randint(0, 100, (int(10), 3))
-    w = np.random.randint(1, 10, int(10)).reshape(-1, 1)
+    data = np.random.randint(0, 100, (10, 3))
+    w = np.random.randint(1, 10, 10).reshape(-1, 1)
     data = np.hstack([data, w])
     columns = list("abcw")
 
