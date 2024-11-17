@@ -1,0 +1,30 @@
+name: Upload Python Package
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+
+jobs:
+
+  release:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup venv
+      if: github.event_name == 'release' && github.event.action == 'created'
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+    - name: Install dependencies
+      run: make install
+    - name: Build package
+      if: github.event_name == 'release' && github.event.action == 'created'
+      run: make build
+    - name: Publish package
+      if: github.event_name == 'release' && github.event.action == 'created'
+      # uses: pypa/gh-action-pypi-publish@release/v1
+      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
