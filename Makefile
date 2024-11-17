@@ -8,14 +8,14 @@ help:  ## Display this help
 
 .PHONY: venv
 uv:  ## Install uv
-	curl -LsSf https://astral.sh/uv/install.sh | sh
+	@command -v uv >/dev/null 2>&1 || curl -LsSf https://astral.sh/uv/install.sh | sh
 
 .PHONY: dev
-dev:  ## Install dev dependencies
+dev: uv ## Install dev dependencies
 	uv sync --dev
 
 .PHONY: install
-install:  ## Install dependencies
+install: uv ## Install dependencies
 	uv sync
 
 .PHONY: test
