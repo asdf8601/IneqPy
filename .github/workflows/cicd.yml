@@ -9,12 +9,12 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
         python-version: ["3.10", "3.11", "3.12"]
         include:
           - python-version: "3.13"
-            os: ubuntu-latest
             experimental: true
     steps:
     - uses: actions/checkout@v4
