@@ -34,6 +34,8 @@ Homepage = "https://github.com/asdf8601/IneqPy"
 [tool.setuptools]
 package-dir = {"" = "src"}
 
+[tool.setuptools_scm]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
