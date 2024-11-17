@@ -1,18 +1,16 @@
 """inequality module."""
-import pandas as pd
-from typing import Union
-import numpy as np
 
-from .. import inequality as ineq
-from .. import _statistics as stats
-from .. import utils
+import numpy as np
+import pandas as pd
+
+from .. import _statistics as stats, inequality as ineq, utils
 
 
 def atkinson_group(
     data: pd.DataFrame = None,
-    income: Union[str, pd.DataFrame, np.ndarray] = None,
-    weights: Union[str, pd.DataFrame, np.ndarray] = None,
-    group: Union[str, pd.DataFrame, np.ndarray] = None,
+    income: str | pd.DataFrame | np.ndarray = None,
+    weights: str | pd.DataFrame | np.ndarray = None,
+    group: str | pd.DataFrame | np.ndarray = None,
     e: float = 0.5,
 ):
     r"""Calculate atkinson index.

@@ -2,7 +2,6 @@
 
 Contains inequality and stats module.
 """
-from . import inequality
-from . import stats
+from . import inequality, stats
 
 __all__ = ["inequality", "stats"]

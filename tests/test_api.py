@@ -1,6 +1,8 @@
-import ineqpy
 import numpy as np
 import pandas as pd
+
+import ineqpy
+
 
 def test_api():
     # todo improve this test.

@@ -14,9 +14,9 @@ Todo
 """
 import numpy as np
 import pandas as pd
-from .statistics import mean
-from . import utils
 
+from . import utils
+from .statistics import mean
 
 __all__ = [
     "atkinson",
@@ -463,10 +463,10 @@ def avg_tax_rate(total_tax, total_base, weights=None, data=None):
         base_name = total_base
         tax_name = total_tax
     else:
-        base_name = ["base" % i for i in range(n_cols)]
-        tax_name = ["tax_%s" % i for i in range(n_cols)]
+        base_name = ["base".format() for i in range(n_cols)]
+        tax_name = [f"tax_{i}" for i in range(n_cols)]
 
-    names = ["_".join([t, b]) for t, b in zip(tax_name, base_name)]
+    names = ["_".join([t, b]) for t, b in zip(tax_name, base_name, strict=False)]
     res = pd.Series(res, index=names)
     return res
 

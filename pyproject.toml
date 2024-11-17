@@ -48,6 +48,8 @@ exclude = ["**/node_modules",
     "deps",
     "src/typestubs"
 ]
+
+[tool.lint.ignore]
 ignore = ["src/oldstuff"]
 stubPath = "src/stubs"
 # venv = "env367"
@@ -59,25 +61,46 @@ executionEnvironments = [
   { root = "src" }
 ]
 
-[tool.ruff]
-line-length = 80
-target-version = "py310"
+[tool.ruff.format]
+quote-style = "preserve"
+
+[tool.ruff.lint]
 select = [
-    "E",  # pycodestyle errors
-    "W",  # pycodestyle warnings
-    "F",  # pyflakes
-    "I",  # isort
-    "C",  # flake8-comprehensions
-    "B",  # flake8-bugbear
+    'F',
+    'E',
+    'W',
+    'UP',
+    'NPY201',
 ]
 ignore = [
-    "E501",  # line too long
+    'E501',
+    'E741',
+    'E712',
+    'E721',
+    'UP038',  # non-pep604-isinstance -- https://github.com/astral-sh/ruff/issues/7871
 ]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]
+"**/__init__.py" = [
+    'E402',
+    'F401',
+    'F403',
+    'F405',
+]
+"**/__init__.pyi" = [
+    'E402',
+    'F401',
+    'F403',
+    'F405',
+]
+"skimage/_shared/testing.py" = ['F401']
+"doc/examples/**/*.py" = ['E402']
 
-[tool.ruff.isort]
+[tool.ruff.lint.pydocstyle]
+convention = 'numpy'
+
+[tool.ruff.lint.isort]
 known-first-party = ["ineqpy"]
 combine-as-imports = true
 

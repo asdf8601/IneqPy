@@ -1,9 +1,9 @@
-from ineqpy import statistics
-from ineqpy import utils
-import scipy.stats as sc
 import numpy as np
 import numpy.testing as nptest
 import pytest
+import scipy.stats as sc
+
+from ineqpy import statistics, utils
 
 
 def gen_inputs(n_tuples=100):

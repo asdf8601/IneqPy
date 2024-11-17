@@ -4,9 +4,8 @@ Extend pandas.DataFrames with the main functions from statistics and
 inequality modules.
 """
 import inspect
-
-from types import MethodType
 from functools import partial
+from types import MethodType
 
 import pandas as pd
 
@@ -38,7 +37,7 @@ class Convey:
     @classmethod
     def _attach_method(module, instance):
         # get methods names contained in module
-        res_names = list()
+        res_names = []
         res_methods = []
         method_name_list = inspect.getmembers(module, inspect.isfunction)
 
