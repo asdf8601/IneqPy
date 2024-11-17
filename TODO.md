@@ -1,5 +1,8 @@
 # TODO
 
-- [ ] !!! tst(inequality): add tests for inequality module
-- [ ] doc(readme): update examples and remove travis.
-- [ ] enh(type): add type hinting
+- [o] adopt uv
+- [o] update deps and python ver
+- [ ] ???
+
+
+
