@@ -38,7 +38,7 @@ pages: doc  ## Build documentation and push to gh-pages
 
 .PHONY: doc
 doc:  ## Build documentation
-	cd docs && pipenv run make html
+	cd docs && uv run make html
 
 .PHONY: build
 build: ## Build package

@@ -11,8 +11,8 @@ authors = [
     {name = "Max", email = "ineqpy@mxm.mozmail.com"},
 ]
 license = {text = "MIT"}
+requires-python = ">=3.10"
 classifiers = [
-    "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -83,6 +83,11 @@ combine-as-imports = true
 
 [tool.uv]
 dev-dependencies = [
+    "myst-parser>=4.0.0",
+    "numpydoc>=1.8.0",
     "pytest>=8.3.3",
     "ruff>=0.7.4",
+    "sphinx-autoapi>=3.3.3",
+    "sphinx-rtd-theme>=3.0.2",
+    "sphinx>=8.1.3",
 ]
