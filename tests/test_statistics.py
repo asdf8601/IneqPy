@@ -1,9 +1,9 @@
-from ineqpy import statistics
-from ineqpy import utils
-import scipy.stats as sc
 import numpy as np
 import numpy.testing as nptest
 import pytest
+import scipy.stats as sc
+
+from ineqpy import statistics, utils
 
 
 def gen_inputs(n_tuples=100):
@@ -53,7 +53,7 @@ def test_coef_variation(x, w, r_x):
 @pytest.mark.parametrize("x,w,r_x", gen_inputs())
 def test_percentile(x, w, r_x):
     p = 50
-    real = np.percentile(r_x, p, interpolation="lower")
+    real = np.percentile(r_x, p, method="lower")
     obtained = statistics.percentile(x, w, p=p)
     nptest.assert_almost_equal(
         obtained, real, err_msg=msg(real, obtained, r_x, x, w)
@@ -62,4 +62,4 @@ def test_percentile(x, w, r_x):
 
 def msg(real, obtained, r_x, x, w):
     if abs(real - obtained) > 1e-6:
-        return "\nr_x = {}\nx = {}\nw = {}".format(str(r_x), str(x), str(w))
+        return f"\nr_x = {str(r_x)}\nx = {str(x)}\nw = {str(w)}"

@@ -156,7 +156,7 @@ def repeat_data_from_weighted(x, w):
     repeated_x = np.array([])
     repeated_w = np.array([])
 
-    for xi, wi in zip(x, w):
+    for xi, wi in zip(x, w, strict=False):
         repeated_x = np.append(repeated_x, np.repeat(xi, wi))
         repeated_w = np.append(repeated_w, np.ones(wi))
 

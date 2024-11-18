@@ -1,6 +1,44 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta:__legacy__"
+requires = ["setuptools", "wheel", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "IneqPy"
+dynamic = ["version"]
+description = "A Python Package To Quantitative Analysis Of Inequality"
+readme = "README.md"
+authors = [
+    {name = "Max", email = "ineqpy@mxm.mozmail.com"},
+]
+license = {text = "MIT"}
+requires-python = ">=3.10"
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "numpy",
+    "pandas",
+    "numba",
+    "scipy>=1.14.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/asdf8601/IneqPy"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools_scm]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 
 [tool.pyright]
 include = ["src"]
@@ -10,16 +48,70 @@ exclude = ["**/node_modules",
     "deps",
     "src/typestubs"
 ]
+
+[tool.lint.ignore]
 ignore = ["src/oldstuff"]
 stubPath = "src/stubs"
 # venv = "env367"
-
 reportMissingImports = true
 reportMissingTypeStubs = false
-
 pythonPlatform = "Linux"
 
 executionEnvironments = [
   { root = "src" }
 ]
 
+[tool.ruff.format]
+quote-style = "preserve"
+
+[tool.ruff.lint]
+select = [
+    'F',
+    'E',
+    'W',
+    'UP',
+    'NPY201',
+]
+ignore = [
+    'E501',
+    'E741',
+    'E712',
+    'E721',
+    'UP038',  # non-pep604-isinstance -- https://github.com/astral-sh/ruff/issues/7871
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"**/__init__.py" = [
+    'E402',
+    'F401',
+    'F403',
+    'F405',
+]
+"**/__init__.pyi" = [
+    'E402',
+    'F401',
+    'F403',
+    'F405',
+]
+"skimage/_shared/testing.py" = ['F401']
+"doc/examples/**/*.py" = ['E402']
+
+[tool.ruff.lint.pydocstyle]
+convention = 'numpy'
+
+[tool.ruff.lint.isort]
+known-first-party = ["ineqpy"]
+combine-as-imports = true
+
+[tool.uv]
+dev-dependencies = [
+    "myst-parser>=4.0.0",
+    "numpydoc>=1.8.0",
+    "pytest-cov>=6.0.0",
+    "pytest>=8.3.3",
+    "ruff>=0.7.4",
+    "sphinx-autoapi>=3.3.3",
+    "sphinx-rtd-theme>=3.0.2",
+    "sphinx>=8.1.3",
+]

@@ -12,7 +12,7 @@ References
 import numpy as np
 from numba import guvectorize
 
-from . import utils
+from ineqpy import utils
 
 
 def c_moment(variable=None, weights=None, order=2, param=None, ddof=0):

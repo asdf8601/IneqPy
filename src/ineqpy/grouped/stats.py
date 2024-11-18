@@ -1,6 +1,6 @@
 """Stats' module."""
-from .. import utils
-from .._statistics import c_moment, mean, std_moment
+from ineqpy import utils
+from ineqpy._statistics import c_moment, mean, std_moment
 
 
 def variance_hat_group(data=None, variable="x", weights="w", group="h"):

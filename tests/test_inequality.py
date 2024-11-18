@@ -1,7 +1,7 @@
-from unittest import expectedFailure
 import numpy as np
-from ineqpy import inequality
 import pytest
+
+from ineqpy import inequality
 
 
 def test_concentration_0d():
@@ -85,7 +85,7 @@ def test_atkinson_1d_1_w():
 def test_theil_1d_series():
     """ Testing theil with no weights. Every value is the same """
     x = np.repeat(5, 10)
-    
+
     obtained = inequality.theil(income=x)
     expected = 0
 
@@ -148,7 +148,7 @@ def test_ratio_weighted_eq_unweighted(n):
 
     # Weight should be the same as repeating the number multiple times
     xw = []
-    for xi, wi in zip(x,w):
+    for xi, wi in zip(x,w, strict=False):
         xw += [xi]*wi  # Create a list that contains
 
     xw = np.array(xw)
